@@ -15,9 +15,11 @@ Debes incluir la libreria Jquery 1.8 o superior y el archivo del validador Jida.
 <script src="jValidador.min.js"></script>
 <script>
 $( document ).ready(function(){
-	$("#idBoton").jValidador({validaciones:{
-		'idCampo1' : {"validacion" : {"configuracion":"valorConfiguracion"}}
-	}})
+	$("#idBoton").jValidador({
+			validaciones:{
+							'idCampo1' : {"validacion" : {"configuracion":"valorConfiguracion"}
+						}
+	})
  	
 });
 </script>
