@@ -40,8 +40,11 @@
 			var validaciones = {
 									'nombre':{
 										'externa':{
-											expr: /^3(00|01|02|03|04|05|10|11|12|13|14|15|16|17|18|19|20|21|042)-?\d{7}$/,
-											mensaje: "Mensaje Funcion externa",	
+											funcion: function($campo){
+													if($campo.val()!='julio')return false;
+													return true;
+													},
+											'mensaje': "Mensaje Funcion externa",	
 										}
 									}
 								
