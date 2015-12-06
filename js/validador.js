@@ -98,9 +98,6 @@
                     jv.erroresCampo=true;
                     bandera=false;
                     return bandera;
-                }else{
-                    
-                    console.log("todo bien con "+$ele.attr('id')+" "+bandera);
                 }
             }
             return bandera;
@@ -220,11 +217,11 @@
           *  
           */
          externa:function($ele,validacion,params){
-            console.log(params.funcion);
+            
             if(params.funcion){ 
                 return params.funcion.call(this,$ele,validacion,params);
             }if(params.expr){
-                console.log("aqu");
+            
                 return this.ejecutarValidacion($ele,validacion,params.expr)
             }else{
                 throw new Error("No se ha formulado correctamente la validacione xterna"+ validacion);   
@@ -245,7 +242,7 @@
         ejecutarValidacion:function($campo,validacion,expresion){
             
             if(!expresion) expresion = jValidador.validaciones[validacion].expr;
-            console.log(expresion);
+            
             var valorCampo = $campo.val();
             if(validacion=='numerico' || validacion=='decimal'){
                 //Si el campo es numerico se eliminan los formatos de miles
