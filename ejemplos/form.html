@@ -1,0 +1,36 @@
+<form name="formNumeroDos" id="formNumeroDos">
+					
+		<div class="form-group">
+		    <label for="email">Correo Electr&oacute;nico</label>
+		    <input type="text" class="form-control" id="email" name="email" placeholder="tuCorreo@dominio.com" data-validacion='["obligatorio","email"]'>
+		  </div>
+		  <div class="form-group">
+			    <label for="montoPago">&iquest; Realizo un pago?</label>
+			  <div class="radio">
+			    <label>
+			      <input type="radio" id="pago1" name="pago" value="1" data-validacion='["obligatorio"]'> SI
+			    </label>
+			   </div>
+			  <div class="radio">
+			    <label>
+			    	<input type="radio" id="pago2" name="pago" value="2"> NO
+		    	</label>
+			  </div>
+		  </div>
+		  <div class="form-group">
+			    <label for="montoPago">Monto de pago</label>
+			    <input type="text" class="form-control" id="montoPago" placeholder="Monto del pago"  
+			    	data-validacion='{"obligatorio":{
+														"mensaje":"Debe indicar el monto del pago",
+														"condicional":"pago1",
+														"tipo":"radio",
+														"condicion":1},"decimal":{"mensaje":"El monto pagado debe ser númerico"}}'>
+		  </div>
+		  <div class="form-group">
+			    <label for="telefono">Tel&eacute;fono</label>
+			    <input type="text" class="form-control" id="telefono" placeholder="000-0000000" 
+			    data-validacion='{"telefono":{"mensaje":"El teléfono no es valido"}}'>
+		  </div>
+		  <button type="button" class="btn btn-default" 
+		  id="validarFormDos" >Validar</button>
+	</form>
