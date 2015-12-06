@@ -63,7 +63,7 @@
         
         
     };
-    jValidador.VERSION='1.0';
+    jValidador.VERSION='1.1';
     var jdValidador = '[data-jida="validador"]';
     jValidador.replaceAll = function(value,charte,valorReplace){
         if(!valorReplace)
