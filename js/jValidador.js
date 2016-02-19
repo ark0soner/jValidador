@@ -1,7 +1,9 @@
 /**
  * JidaFramework : validador v1.0
  * 
- * Copyright 2012 - 2015
+ * @author @ark0soner
+ * www.jidadesarrollos.com.ve
+ * Copyright 2012 - 2016
  *  
  */
 (function($){
@@ -58,7 +60,7 @@
                 
             
         }else{
-            console.log("ney")
+            console.log("ele is FALSE");
         }        
         
         
@@ -93,6 +95,7 @@
             jv = this;
             
             if($ele.data('validacion') && bandera===true){
+                //console.log($ele);
                 if(!jv.validar($ele,jv.verificarValidaciones($ele.data('validacion')))){
                     eval(jv.config.funcionError).call(this,$ele);
                     jv.erroresCampo=true;
@@ -100,6 +103,7 @@
                     return bandera;
                 }
             }
+            //console.log($ele.data('validacion'));
             return bandera;
         },
         erroresCampo:false,
@@ -196,8 +200,9 @@
                                 bandera=false;
                             }
                         }else{
-                          
-                          throw new Error("No existe la validacion solicitada "+ validacion);   
+                          console.log(validacion);
+                          console.log(params)
+                          throw new Error("No existe la validacion solicitada "+ validacion+" para el campo "+$ele.attr('id'));   
                         }
                         
                     }
@@ -222,14 +227,14 @@
                 return params.funcion.call(this,$ele,validacion,params);
             }if(params.expr){
             
-                return this.ejecutarValidacion($ele,validacion,params.expr)
+                return this.ejecutarValidacion($ele,validacion,params.expr);
             }else{
                 throw new Error("No se ha formulado correctamente la validacione xterna"+ validacion);   
            }
          },
          expr:function($ele,validacion,params){
             
-             return this.ejecutarValidacion($ele,validacion,params.expr)
+             return this.ejecutarValidacion($ele,validacion,params.expr);
              
          },
          /**
@@ -324,6 +329,7 @@
                     
                         
                 }
+                console.log(msj);
             }
             
             
@@ -554,7 +560,7 @@
             
     }; 
     /**
-     *  =============================
+     *   =============================
      *   DECLARACION DEL PLUGIN 
      *  ============================
      * 
@@ -577,7 +583,12 @@
     $.fn.jValidador = jPlugin;
     //Inicialización via data
     $( document ).on('click',jdValidador,function(e){
-        data = $(this).data('config');
+        
+        if($(this).data('config')!=undefined){
+          var  data = $(this).data('config');
+        }else{
+          var  data = new Object();
+        }
         data.viaData=true;
         new jValidador(this,data,e);
     });    
