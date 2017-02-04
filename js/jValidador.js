@@ -1,9 +1,7 @@
 /**
  * JidaFramework : validador v1.0
  * 
- * @author @ark0soner
- * www.jidadesarrollos.com.ve
- * Copyright 2012 - 2016
+ * Copyright 2012 - 2015
  *  
  */
 (function($){
@@ -196,7 +194,7 @@
                         }else
                         if(jValidador.validaciones[validacion]){
                             if(!jv.ejecutarValidacion($ele,validacion)){
-                                jv.errores[$ele.attr('name')]=validacion;
+                                jv.errores[$ele.attr('id')]=validacion;
                                 bandera=false;
                             }
                         }else{
@@ -287,10 +285,11 @@
                 
                     msj = (validacionesCampo[errorCampo].mensaje)?validacionesCampo[errorCampo].mensaje:jValidador.validaciones[errorCampo].mensaje;    
                 }else{
+                	console.log(jv.errores);
                     msj = jValidador.validaciones[errorCampo].mensaje;
                     
                 }
-                if(divError.size()>0){
+                if(divError.length>0){
             
                     //$input = this.$form.find('[name="'+$campo.attr('name')+'"]');
                     if($input.parent().hasClass('control-multiple')){
@@ -544,8 +543,8 @@
           moneda : {expr:/^\d+$/,mensaje:"El campo debe ser numerico"},
           decimal:{ expr:/^([0-9])*[.|,]?[0-9]*$/,mensaje :"El campo debe ser numerico con decimales"},
           caracteres:{expr: /^[A-ZñÑa-záéíóúÁÉÍÓÚ ]*$/,mensaje:'El campo solo puede contener caracteres'},
-          celular:{expr:/^0(412|416|414|424|426)\d{7}$/,mensaje:"El formato del celular no es valido"},
-          telefono:{expr:/^02[0-9]{9,13}$/,mensaje:"El formato del telefono no es valido"},
+          celular:{expr:/^0?(412|416|414|424|426)\d{7}$/,mensaje:"El formato del celular no es valido"},
+          telefono:{expr:/^0?2[0-9]{9,13}$/,mensaje:"El formato del telefono no es valido"},
           caracteresEspeciales:{expr:/^([^(*=;\\)])*$/,mensajes:"Caracteres invalidos en el campo"},      
           tiny:{mensaje:"El campo es obligatorio"},
           alfanumerico:{expr:/^[\dA-ZñÑa-záéíóúÁÉÍÓÚ.,\' ]*$/,mensaje:"El campo solo puede contener letras y numeros"},

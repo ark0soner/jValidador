@@ -1,0 +1,28 @@
+{
+  "name": "jValidador",
+  "homepage": "https://github.com/jR0driguez/jValidador",
+  "authors": [
+    "Julio Rodriguez <jirc48@gmail.com>"
+  ],
+  "description": "Validador JS jidaFramework",
+  "main": "js/jValidador.js",
+  "keywords": [
+    "jida",
+    "javascript",
+    "validador",
+    "forms"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "bootstrap": "^3.3.7"
+  }
+}
