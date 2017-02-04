@@ -9,8 +9,8 @@
 		<meta name="description" content="Ejemplo del validador Jida">
 		<meta name="author" content="ark0soner">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-		<link rel="stylesheet" href="../../css/bootstrap.css"/>
-		<link rel="stylesheet" href="../../css/jida-common.css"/>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../css/jida-common.css"/>
 	</head>
 
 	<body>
@@ -25,11 +25,11 @@
 					<div class="form-group">
 					    <label for="nombre">Nombre</label>
 					    <span class="control-obligatorio">*</span>
-					    <input type="text" class="form-control" id="nombre" name="id" placeholder="Ingresa tu nombre">
+					    <input type="text" class="form-control" id="nombre" name="id" placeholder="Ingresa tu nombre" data-validacion='["obligatorio","caracteres"]'>
 				  	</div>
 				  	<div class="form-group">
 					    <label for="apellido">Apellido</label>
-					    <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu nombre">
+					    <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu nombre" data-validacion='{"caracteres":{"mensaje":"El apellido solo puede contener letras"}}'>
 				  	</div>
 				  	
 				  	<div class="form-group">
@@ -45,13 +45,16 @@
 									<option value="J">J</option>
 									<option value="V">V</option>
 								</select>
-								<input type="text" data-jidacontrol="numerico" name="documento_identificacion" id="documento_identificacion" title="Documento de Identificac&oacute;n"  class="form-control ctrl-documentacion"  data-jidacontrol="numerico" placeholder="Documento de Identificaci&oacute;n" maxlength="9" size="30">
+								<input type="text" data-jidacontrol="numerico" name="documento_identificacion" id="documento_identificacion" title="Documento de Identificac&oacute;n"  class="form-control ctrl-documentacion"  
+								placeholder="Documento de Identificaci&oacute;n" maxlength="9" size="30" 
+								data-validacion='{"obligatorio":{"mensaje":"El documento de identificaci&oacute;n es obligatorio"},
+												"documentacion":{"mensaje":"Formato de documento de identificaci&oacute;n invalido","campo_codigo":"true"}}'>
 							</div>
 					</div>
 						
 				  <div class="form-group">
 				    <label for="email">Correo Electr&oacute;nico</label>
-				    <input type="text" class="form-control" id="email" placeholder="tuCorreo@dominio.com">
+				    <input type="text" class="form-control" id="email" placeholder="tuCorreo@dominio.com" data-validacion='["obligatorio","email"]'>
 				  </div>
 				  <div class="form-group">
 					    <label for="montoPago">&iquest; Realizo un pago?</label>
@@ -68,22 +71,26 @@
 				  </div>
 				  <div class="form-group">
 					    <label for="montoPago">Monto de pago</label>
-					    <input type="text" class="form-control" id="montoPago" placeholder="Monto del pago">
+					    <input type="text" class="form-control" id="montoPago" placeholder="Monto del pago" data-validacion='{"obligatorio":{
+																"mensaje":"Debe indicar el monto del pago",
+																"condicional":"pago1",
+																"tipo":"radio",
+																"condicion":1},"decimal":{"mensaje":"El monto pagado debe ser númerico"}}'>
 				  </div>
 				  <div class="form-group">
-					    <label for="montoPago">Tel&eacute;fono</label>
-					    <input type="text" class="form-control" id="telefono" placeholder="000-0000000">
+					    <label for="telefono">Tel&eacute;fono</label>
+					    <input type="text" class="form-control" id="telefono" placeholder="000-0000000" data-validacion='{"telefono":{"mensaje":"El teléfono no es valido"}}'>
 				  </div>
-				  <button type="submit" class="btn btn-default" id="validarForm">Validar</button>
+				  <button type="submit" class="btn btn-default" id="validarForm" data-jida="validador">Validar</button>
 				  
 					</form>
 				
 			</div>
 		</div>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="../js/validador.js"></script>
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../js/jValidador.js"></script>
 		<script>
-		$( document ).ready(function(){
+		/*$( document ).ready(function(){
 			var array =['obligatorio','caracteres'];
 			
 			var validaciones = {
@@ -118,7 +125,7 @@
 		 	
 		 	$("#validarForm").jValidador({'validaciones':validaciones});
 			
-		});
+		});*/
 		</script>
 	</body>
 </html>

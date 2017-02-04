@@ -9,8 +9,8 @@
 		<meta name="description" content="Ejemplo del validador Jida">
 		<meta name="author" content="ark0soner">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-		<link rel="stylesheet" href="../../css/bootstrap.css"/>
-		<link rel="stylesheet" href="../../css/jida-common.css"/>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../css/jida-common.css"/>
 	</head>
 
 	<body>
@@ -25,16 +25,16 @@
 					<div class="form-group">
 					    <label for="nombre">Nombre</label>
 					    <span class="control-obligatorio">*</span>
-					    <input type="text" class="form-control" id="nombre"  placeholder="Ingresa tu nombre">
+					    <input type="text" class="form-control" id="nombre"  placeholder="Ingresa tu nombre" data-validacion='["obligatorio","caracteres"]'>
 				  	</div>
-				  	<button type="submit" class="btn btn-default" id="validarForm">Validar</button>
+				  	<button type="submit" class="btn btn-default" id="validarForm" data-jida="validador">Validar</button>
 				</form>					
 			</div>
 		</div>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="../js/validador.js"></script>
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../js/jValidador.js"></script>
 		<script>
-		$( document ).ready(function(){
+		 /* $( document ).ready(function(){
 			var array =['obligatorio','caracteres'];
 			
 			var validaciones = {
@@ -55,7 +55,7 @@
 		});
 		function testing(){
 			console.log("hola mundo");return false;
-		}
+		}*/
 		</script>
 	</body>
 </html>

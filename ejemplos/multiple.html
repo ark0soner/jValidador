@@ -9,8 +9,8 @@
 		<meta name="description" content="Ejemplo del validador Jida">
 		<meta name="author" content="ark0soner">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-		<link rel="stylesheet" href="../../css/bootstrap.css"/>
-		<link rel="stylesheet" href="../../css/jida-common.css"/>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="../css/jida-common.css"/>
 		
 	</head>
 
@@ -30,7 +30,7 @@
 					    <label for="nombre">Nombre</label>
 					    
 					    <span class="control-obligatorio">*</span>
-					    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" data-validacion='["caracteres"]'>
+					    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" data-validacion='["obligatorio","caracteres"]'>
 				  	</div>
 				  	<div class="form-group">
 					    <label for="apellido">Apellido</label>
@@ -71,9 +71,9 @@
 		</div>
 		<button id="carga"> Cargar</button>
 		
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../js/jValidador.js"></script>
 		<script src="../../js/jd.ajax/jd.ajax.js"></script>
-		<script src="../js/validador.js"></script>
 		<script>
 		
 			function testingPrev(){
